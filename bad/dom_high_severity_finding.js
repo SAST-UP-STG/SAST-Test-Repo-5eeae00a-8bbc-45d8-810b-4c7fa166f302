@@ -16,6 +16,7 @@ $(function () {
     client.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             json += client.responseText;
+            var newflow = client.responseText;
             console.log("entry");
             let questionsJson = json;
             var questionsObj = JSON.parse(questionsJson);
@@ -32,6 +33,7 @@ $(function () {
                     html += "</fieldset></div>";
                 });
             });
+            html += newflow;
             document.getElementById("q_container").innerHTML = html;
         }
     }
